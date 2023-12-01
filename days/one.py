@@ -3,4 +3,4 @@ def run():
     print(result)
 
 def puzzle_a():
-    return 4
+    return "4"

@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-import day_1
+from days import one
 
-day_1.run()
+one.run()
 print("Hello, World!")
