@@ -23,9 +23,10 @@ class TestStringMethods(unittest.TestCase):
           "4nineeightseven2",
           "zoneight234",
           "7pqrstsixteen",
+          "eighthree",
         ]
         result = one.puzzle_a(input)
-        test_result = 281
+        test_result = 281 + 83
         self.assertEqual(result, test_result)
 
 if __name__ == '__main__':
