@@ -37,7 +37,7 @@ def get_numbers(array):
 
                 #print(index, number, numbers_in_line, lower_index, upper_index)
                 check_for_symbol(number, lower_index, upper_index, index, array)
-    sum_data()
+    return sum_data()
 
 def check_for_symbol(number, x1, x2, y, array):
     start_x = x1 - 1 if x1 > 0 else 0
@@ -61,6 +61,7 @@ def sum_data():
     for data in data_store:
         sum = sum + int(data)
     print("sum: ", sum)
+    return sum
 
 def run():
     print("Day three puzzle 1a is:")
