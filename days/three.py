@@ -1,8 +1,5 @@
 import re
-from utils import input
 
-
-data_input = input.getInputData("three")
 data_store = []
 
 special_char='[@_!$%^&*()<>?/\|}{~:]#+=-'
@@ -63,7 +60,7 @@ def sum_data():
     print("sum: ", sum)
     return sum
 
-def run():
+def run(data_input):
     print("Day three puzzle 1a is:")
 
     get_numbers(data_input)
