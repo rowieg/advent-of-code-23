@@ -1,7 +1,3 @@
-from utils import input
-
-data_input = input.getInputData("two")
-
 class Game:
     boundary: {}
     game_data: {}
@@ -111,7 +107,7 @@ class Game:
             min_games.append(red * green * blue)
             
         return min_games
-def run():
+def run(data_input):
     print("Day two puzzle 1a is:")
 
 
