@@ -1,8 +1,4 @@
-from utils import input
-
-data_input = input.getInputData("one")
-
-def run():
+def run(data_input):
     print("Day one puzzle 1a is:")
     print(puzzle_a(data_input))
 
