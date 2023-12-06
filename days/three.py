@@ -45,7 +45,6 @@ def sum_data():
     sum = 0
     for data in data_store:
         sum = sum + int(data)
-    print(sum)
     return sum
 
 def get_gears(array):

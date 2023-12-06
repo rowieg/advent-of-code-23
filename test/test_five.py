@@ -65,8 +65,24 @@ class TestStringMethods(unittest.TestCase):
         print("humidity-to-location map:")
         humi_map.create_map(60, 56, 37)
         humi_map.create_map(56, 93, 4)
+
+        lowest_location = 100
         
-        self.assertEqual(2, 2)
+        for seed in seeds:
+            soil = seed_map.convert(seed)
+            fertilizer = soil_map.convert(soil)
+            water = fert_map.convert(fertilizer)
+            light = water_map.convert(water)
+            temperature = light_map.convert(light)
+            humidity = temp_map.convert(temperature)
+            location = humi_map.convert(humidity)
+
+            if location < lowest_location:
+                lowest_location = location
+
+            #print("Seed {}, soil {}, fertilizer {}, water {}, light {}, temperature {}, humidity {}, location {}.".format(seed, soil, fertilizer, water, light, temperature, humidity, location))
+        
+        self.assertEqual(location, 35)
 
     def test_fullrun(self):
         seeds = [
@@ -119,10 +135,6 @@ class TestStringMethods(unittest.TestCase):
         seed_map.create_map(2435424757, 929691047, 389480769)
         seed_map.create_map(519616861, 591181353, 101501685)
 
-        for seed in seeds:
-            map = seed_map.get_map()
-            soils.append(map[str(seed)])
-
         print("soil-to-fertilizer map:")
         soil_map.create_map(2819195624, 2690204780, 252557843)
         soil_map.create_map(1098298904, 1339121422, 10546957)
@@ -158,10 +170,6 @@ class TestStringMethods(unittest.TestCase):
         soil_map.create_map(1842926114, 990679242, 15117438)
         soil_map.create_map(0, 61048150, 249083929)
 
-        for soil in soils:
-            map = soil_map.get_map()
-            ferts.append(map[str(soil)])
-
         print("fertilizer-to-water map:")
         fert_map.create_map(0, 434502471, 470583313)
         fert_map.create_map(1739362496, 1919893972, 48874906)
@@ -189,10 +197,6 @@ class TestStringMethods(unittest.TestCase):
         fert_map.create_map(2863339622, 2485756143, 46539414)
         fert_map.create_map(3167374828, 1183527045, 157147254)
         fert_map.create_map(2414467031, 1776448144, 81703655)
-
-        for fert in ferts:
-            map = seed_map.get_map()
-            waters.append(map[str(fert)])
 
         print("water-to-light map:")
         water_map.create_map(894548549, 593866955, 6252040)
@@ -234,100 +238,98 @@ class TestStringMethods(unittest.TestCase):
         water_map.create_map(1037034802, 1437947757, 33201472)
         water_map.create_map(936681812, 1203751669, 100352990)
 
-        for water in waters:
-            map = seed_map.get_map()
-            lights.append(map[str(water)])
-
         print("light-to-temperature map:")
-        seed_map.create_map(1726863959, 864157287, 834947717)
-        seed_map.create_map(263199301, 190436173, 53620398)
-        seed_map.create_map(1393417259, 1699105004, 333446700)
-        seed_map.create_map(2783912856, 244056571, 155961192)
-        seed_map.create_map(2939874048, 400017763, 299945457)
-        seed_map.create_map(671449939, 2517852185, 721967320)
-        seed_map.create_map(2561811676, 2295751005, 222101180)
-        seed_map.create_map(0, 2032551704, 263199301)
-        seed_map.create_map(481013766, 0, 190436173)
-        seed_map.create_map(316819699, 699963220, 164194067)
-
-
-        for light in lights:
-            map = seed_map.get_map()
-            temps.append(map[str(light)])
+        light_map.create_map(1726863959, 864157287, 834947717)
+        light_map.create_map(263199301, 190436173, 53620398)
+        light_map.create_map(1393417259, 1699105004, 333446700)
+        light_map.create_map(2783912856, 244056571, 155961192)
+        light_map.create_map(2939874048, 400017763, 299945457)
+        light_map.create_map(671449939, 2517852185, 721967320)
+        light_map.create_map(2561811676, 2295751005, 222101180)
+        light_map.create_map(0, 2032551704, 263199301)
+        light_map.create_map(481013766, 0, 190436173)
+        light_map.create_map(316819699, 699963220, 164194067)
 
         print("temperature-to-humidity map:")
-        seed_map.create_map(603287260, 3766826980, 8741130)
-        seed_map.create_map(572607531, 3684982838, 30679729)
-        seed_map.create_map(2084038135, 1101548002, 100083930)
-        seed_map.create_map(655933651, 3228345771, 56278566)
-        seed_map.create_map(1881393627, 553997241, 168332584)
-        seed_map.create_map(553997241, 2882185871, 18610290)
-        seed_map.create_map(627184746, 1072799097, 28748905)
-        seed_map.create_map(612028390, 3397056204, 15156356)
-        seed_map.create_map(1693489030, 1430646491, 187904597)
-        seed_map.create_map(3039118107, 1734352525, 2023479)
-        seed_map.create_map(220345266, 0, 43042720)
-        seed_map.create_map(840454312, 3775568110, 147781659)
-        seed_map.create_map(2184122065, 3715662567, 51164413)
-        seed_map.create_map(317040325, 171240045, 2422893)
-        seed_map.create_map(3245373536, 4158663426, 136303870)
-        seed_map.create_map(145773749, 385599932, 74571517)
-        seed_map.create_map(0, 43042720, 128197325)
-        seed_map.create_map(1490020808, 4094893831, 63769595)
-        seed_map.create_map(319463218, 173662938, 140708231)
-        seed_map.create_map(712212217, 1821839294, 128242095)
-        seed_map.create_map(128197325, 314371169, 17576424)
-        seed_map.create_map(2474405575, 3923349769, 171544062)
-        seed_map.create_map(2352890439, 3105028111, 121515136)
-        seed_map.create_map(3467140696, 3318936261, 78119943)
-        seed_map.create_map(2235286478, 3226543247, 1802524)
-        seed_map.create_map(4084196651, 722329825, 210770645)
-        seed_map.create_map(1553790403, 933100470, 139698627)
-        seed_map.create_map(1261006249, 1201631932, 229014559)
-        seed_map.create_map(263387986, 331947593, 53652339)
-        seed_map.create_map(3137034338, 2900796161, 108339198)
-        seed_map.create_map(988235971, 3412212560, 272770278)
-        seed_map.create_map(2237089002, 1618551088, 115801437)
-        seed_map.create_map(3381677406, 1736376004, 85463290)
-        seed_map.create_map(3545260639, 1950081389, 538936012)
-        seed_map.create_map(2049726211, 3284624337, 34311924)
-        seed_map.create_map(2645949637, 2489017401, 393168470)
-        seed_map.create_map(3041141586, 3009135359, 95892752)
-
-        for temp in temps:
-            map = seed_map.get_map()
-            humis.append(map[str(temp)])
+        temp_map.create_map(603287260, 3766826980, 8741130)
+        temp_map.create_map(572607531, 3684982838, 30679729)
+        temp_map.create_map(2084038135, 1101548002, 100083930)
+        temp_map.create_map(655933651, 3228345771, 56278566)
+        temp_map.create_map(1881393627, 553997241, 168332584)
+        temp_map.create_map(553997241, 2882185871, 18610290)
+        temp_map.create_map(627184746, 1072799097, 28748905)
+        temp_map.create_map(612028390, 3397056204, 15156356)
+        temp_map.create_map(1693489030, 1430646491, 187904597)
+        temp_map.create_map(3039118107, 1734352525, 2023479)
+        temp_map.create_map(220345266, 0, 43042720)
+        temp_map.create_map(840454312, 3775568110, 147781659)
+        temp_map.create_map(2184122065, 3715662567, 51164413)
+        temp_map.create_map(317040325, 171240045, 2422893)
+        temp_map.create_map(3245373536, 4158663426, 136303870)
+        temp_map.create_map(145773749, 385599932, 74571517)
+        temp_map.create_map(0, 43042720, 128197325)
+        temp_map.create_map(1490020808, 4094893831, 63769595)
+        temp_map.create_map(319463218, 173662938, 140708231)
+        temp_map.create_map(712212217, 1821839294, 128242095)
+        temp_map.create_map(128197325, 314371169, 17576424)
+        temp_map.create_map(2474405575, 3923349769, 171544062)
+        temp_map.create_map(2352890439, 3105028111, 121515136)
+        temp_map.create_map(3467140696, 3318936261, 78119943)
+        temp_map.create_map(2235286478, 3226543247, 1802524)
+        temp_map.create_map(4084196651, 722329825, 210770645)
+        temp_map.create_map(1553790403, 933100470, 139698627)
+        temp_map.create_map(1261006249, 1201631932, 229014559)
+        temp_map.create_map(263387986, 331947593, 53652339)
+        temp_map.create_map(3137034338, 2900796161, 108339198)
+        temp_map.create_map(988235971, 3412212560, 272770278)
+        temp_map.create_map(2237089002, 1618551088, 115801437)
+        temp_map.create_map(3381677406, 1736376004, 85463290)
+        temp_map.create_map(3545260639, 1950081389, 538936012)
+        temp_map.create_map(2049726211, 3284624337, 34311924)
+        temp_map.create_map(2645949637, 2489017401, 393168470)
+        temp_map.create_map(3041141586, 3009135359, 95892752)
 
         print("humidity-to-location map:")
-        seed_map.create_map(596652260, 530461632, 95173962)
-        seed_map.create_map(3845096173, 1731990943, 158117085)
-        seed_map.create_map(2243878974, 1890108028, 393769632)
-        seed_map.create_map(0, 625635594, 63651375)
-        seed_map.create_map(1920725725, 753532949, 155684321)
-        seed_map.create_map(63651375, 329652856, 200808776)
-        seed_map.create_map(264460151, 0, 60175490)
-        seed_map.create_map(1381444473, 2283877660, 346420873)
-        seed_map.create_map(4003213258, 3594530530, 47694548)
-        seed_map.create_map(548036821, 60175490, 46076186)
-        seed_map.create_map(4100105147, 1678246429, 53744514)
-        seed_map.create_map(2637648606, 3642225078, 292412911)
-        seed_map.create_map(324635641, 106251676, 223401180)
-        seed_map.create_map(4050907806, 3545333189, 49197341)
-        seed_map.create_map(4153849661, 909217270, 141117635)
-        seed_map.create_map(3455132509, 3477799963, 67533226)
-        seed_map.create_map(594113007, 689286969, 2539253)
-        seed_map.create_map(2930061517, 2630298533, 525070992)
-        seed_map.create_map(753532949, 1050334905, 627911524)
-        seed_map.create_map(3522665735, 3155369525, 322430438)
-        seed_map.create_map(2076410046, 3934637989, 167468928)
-        seed_map.create_map(1727865346, 4102106917, 192860379)
+        humi_map.create_map(596652260, 530461632, 95173962)
+        humi_map.create_map(3845096173, 1731990943, 158117085)
+        humi_map.create_map(2243878974, 1890108028, 393769632)
+        humi_map.create_map(0, 625635594, 63651375)
+        humi_map.create_map(1920725725, 753532949, 155684321)
+        humi_map.create_map(63651375, 329652856, 200808776)
+        humi_map.create_map(264460151, 0, 60175490)
+        humi_map.create_map(1381444473, 2283877660, 346420873)
+        humi_map.create_map(4003213258, 3594530530, 47694548)
+        humi_map.create_map(548036821, 60175490, 46076186)
+        humi_map.create_map(4100105147, 1678246429, 53744514)
+        humi_map.create_map(2637648606, 3642225078, 292412911)
+        humi_map.create_map(324635641, 106251676, 223401180)
+        humi_map.create_map(4050907806, 3545333189, 49197341)
+        humi_map.create_map(4153849661, 909217270, 141117635)
+        humi_map.create_map(3455132509, 3477799963, 67533226)
+        humi_map.create_map(594113007, 689286969, 2539253)
+        humi_map.create_map(2930061517, 2630298533, 525070992)
+        humi_map.create_map(753532949, 1050334905, 627911524)
+        humi_map.create_map(3522665735, 3155369525, 322430438)
+        humi_map.create_map(2076410046, 3934637989, 167468928)
+        humi_map.create_map(1727865346, 4102106917, 192860379)
 
-        for humi in humis:
-            map = seed_map.get_map()
-            locs.append(map[str(humi)])
+        lowest_location = 100
+        
+        for seed in seeds:
+            soil = seed_map.convert(seed)
+            fertilizer = soil_map.convert(soil)
+            water = fert_map.convert(fertilizer)
+            light = water_map.convert(water)
+            temperature = light_map.convert(light)
+            humidity = temp_map.convert(temperature)
+            location = humi_map.convert(humidity)
 
+            if location < lowest_location:
+                lowest_location = location
+        
+        print(lowest_location)
 
-        print(locs)
+        self.assertEqual(3, 3)
 
 
 if __name__ == '__main__':

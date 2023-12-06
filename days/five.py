@@ -26,6 +26,9 @@ class SeedMap:
     def print(self):
         print(json.dumps(self.map, indent=8))
 
+    def convert(self, number):
+        return self.map[str(number)]
+
 def run():
     print("Day 5 result 1 is:")
     
