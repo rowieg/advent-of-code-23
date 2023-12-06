@@ -1,4 +1,5 @@
 import copy
+import json
 
 class SeedMap:
     map: {}
@@ -21,6 +22,9 @@ class SeedMap:
             copy_map[str(destination+add)] = source+add
 
         self.set_map(copy_map)
+        
+    def print(self):
+        print(json.dumps(self.map, indemt=8))
 
 def run():
     print("Day 5 result 1 is:")
