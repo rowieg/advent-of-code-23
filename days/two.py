@@ -108,7 +108,7 @@ class Game:
             
         return min_games
 def run(data_input):
-    print("Day two puzzle 1a is:")
+    print("Day two puzzle a is:")
 
 
     g1 = Game(12, 13, 14)
@@ -128,4 +128,5 @@ def run(data_input):
         min_game_sum = min_game_sum + min
 
     print(game_sum)
+    print("Day two puzzle b is:")
     print(min_game_sum)
