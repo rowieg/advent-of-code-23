@@ -24,7 +24,7 @@ class SeedMap:
         self.set_map(copy_map)
         
     def print(self):
-        print(json.dumps(self.map, indemt=8))
+        print(json.dumps(self.map, indent=8))
 
 def run():
     print("Day 5 result 1 is:")
