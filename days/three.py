@@ -65,11 +65,12 @@ def get_gear_ratio(data, gears):
         x_end = x + 1 if x < len(data[y])-1 else x
         y_start = y - 1 if y > 0 else 0
         y_end = y + 1 if y < len(data)-1 else y
-        print("Search for gears in :", "(", x_start, y_start, ")", " - ", "(", x_end, y_end, ")")
+        #print("Search for gears in :", "(", x_start, y_start, ")", " - ", "(", x_end, y_end, ")")
         for y in range(y_start, y_end+1):
             for x in range(x_start, x_end+1):
                 if data[y][x].isdigit():
-                    print("Found digit at: ",data[y][x])
+                    #print("Found digit at: ",data[y][x])
+                    return data[y][x]
                     
 
 def run(data_input):
