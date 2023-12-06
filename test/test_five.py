@@ -30,68 +30,42 @@ class TestStringMethods(unittest.TestCase):
         print("seed-to-soil map:")
         seed_map.create_map(50, 98, 2)
         seed_map.create_map(52, 50, 48)
-        the_soil_map = seed_map.get_map()
-        print(json.dumps(the_soil_map, indent=8))
-
+        seed_map.print()
+        
         print("soil-to-fertilizer map:")
         seed_map.create_map(0, 15, 37)
         seed_map.create_map(37, 52, 2)
         seed_map.create_map(39, 0, 15)
-        the_fert_map = seed_map.get_map()
-        print(json.dumps(the_fert_map, indent=8))
+        seed_map.print()
 
         print("fertilizer-to-water map:")
         seed_map.create_map(49, 53, 8)
         seed_map.create_map(0, 11, 42)
         seed_map.create_map(42, 0, 7)
         seed_map.create_map(57, 7, 4)
-        the_water_map = seed_map.get_map()
-        print(json.dumps(the_water_map, indent=8))
+        seed_map.print()
 
 
         print("water-to-light map:")
         seed_map.create_map(88, 18, 7)
         seed_map.create_map(18, 25, 70)
-        the_light_map = seed_map.get_map()
-        print(json.dumps(the_light_map, indent=8))
-
+        seed_map.print()
+        
         print("light-to-temperature map:")
         seed_map.create_map(45, 77, 23)
         seed_map.create_map(81, 45, 19)
         seed_map.create_map(68, 64, 13)
-        the_temp_map = seed_map.get_map()
+        seed_map.print()
 
         print("temperature-to-humidity map:")
         seed_map.create_map(0, 69, 1)
         seed_map.create_map(1, 0, 69)
-        the_humi_map = seed_map.get_map()
+        seed_map.print()
 
         print("humidity-to-location map:")
         seed_map.create_map(60, 56, 37)
         seed_map.create_map(56, 93, 4)
-        the_location_map = seed_map.get_map()
-
-        for seed in seeds:
-            soil = the_soil_map[str(seed)]
-            fert = the_fert_map[str(soil)]
-            water = the_water_map[str(fert)]
-            light = the_light_map[str(water)]
-            temp = the_temp_map[str(light)]
-            humi = the_humi_map[str(temp)]
-            location = the_location_map[str(humi)]
-
-            text = {
-                "Soild": soil,
-                "Fert": fert,
-                "Water": water,
-                "Light": light,
-                "Temp": temp,
-                "Humi": humi,
-                "Location": location
-            }
-
-
-            print("For seed: ", seed, " use: ", text)
+        seed_map.print()
         
         self.assertEqual(2, 2)
 
