@@ -31,6 +31,7 @@ class TestStringMethods(unittest.TestCase):
         seed_map.create_map(50, 98, 2)
         seed_map.create_map(52, 50, 48)
         the_soil_map = seed_map.get_map()
+        print(json.dumps(the_soil_map, indent=8))
 
         print("soil-to-fertilizer map:")
         soil_map = five.SeedMap(100)
@@ -38,6 +39,7 @@ class TestStringMethods(unittest.TestCase):
         soil_map.create_map(37, 52, 2)
         soil_map.create_map(39, 0, 15)
         the_fert_map = seed_map.get_map()
+        print(json.dumps(the_fert_map, indent=8))
 
         print("fertilizer-to-water map:")
         fert_map = five.SeedMap(100)
@@ -46,6 +48,7 @@ class TestStringMethods(unittest.TestCase):
         fert_map.create_map(42, 0, 7)
         fert_map.create_map(57, 7, 4)
         the_water_map = seed_map.get_map()
+        print(json.dumps(the_water_map, indent=8))
 
 
         print("water-to-light map:")
