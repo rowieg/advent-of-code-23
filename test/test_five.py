@@ -70,13 +70,13 @@ class TestStringMethods(unittest.TestCase):
         the_location_map = seed_map.get_map()
 
         for seed in seeds:
-            soil = the_soil_map[seed]
-            fert = the_fert_map[soil]
-            water = the_water_map[fert]
-            light = the_light_map[water]
-            temp = the_temp_map[light]
-            humi = the_humi_map[temp]
-            location = the_location_map[humi]
+            soil = the_soil_map[str(seed)]
+            fert = the_fert_map[str(soil)]
+            water = the_water_map[str(fert)]
+            light = the_light_map[str(water)]
+            temp = the_temp_map[str(light)]
+            humi = the_humi_map[str(temp)]
+            location = the_location_map[str(humi)]
 
             text = {
                 "Soild": soil,
