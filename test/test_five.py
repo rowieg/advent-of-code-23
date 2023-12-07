@@ -110,6 +110,8 @@ class TestStringMethods(unittest.TestCase):
         for seed_range in seeds_range:
             print("Running for {}".format(seed_range))
             seeds.extend(seed_range)
+        
+        print("Run calc now!")
 
         locations = []
         lowest_location = 0
