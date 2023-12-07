@@ -1,13 +1,26 @@
 import copy
 import json
 
+def convert_number(destination, source, step, seed):
+    if source < seed and seed < (source + step):
+        return (seed - source) + destination
+    else:
+        return seed
+
+def convert_tuples(tuples, id):
+    temp = id
+    for index, tuple in enumerate(tuples):
+        print("Run number: ", index)
+        temp = convert_number(tuple[0],tuple[1],tuple[2], temp)
+    return temp
 class SeedMap:
     map: {}
 
     def __init__(self, max):
-        map = {}
-        for number in range(0,max):
-            map[str(number)] = number
+        map = dict((str(n),n) for n in range(max))
+        print(len(map))
+        # for number in range(0,max):
+        #     map[str(number)] = number
         self.set_map(map)
 
     def set_map(self, map):
