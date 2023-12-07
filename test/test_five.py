@@ -13,13 +13,14 @@ class TestStringMethods(unittest.TestCase):
 
         for seed in seeds:
             result = 0
-
+            print_seed = seed
             #print("seed-to-soil map:")
             soil_tuples = [
                 (50, 98, 2),
                 (52, 50, 48)
             ]
             result = five.convert_tuples(soil_tuples, seed)
+            print_soil = result
 
             #print("soil-to-fertilizer map:")
             fertilizer_tuples = [
@@ -28,6 +29,7 @@ class TestStringMethods(unittest.TestCase):
                 (39, 0, 15),
             ]
             result = five.convert_tuples(fertilizer_tuples, result)
+            print_fert = result
 
             #print("fertilizer-to-water map:")
             water_tuples = [
@@ -38,6 +40,7 @@ class TestStringMethods(unittest.TestCase):
             ]
 
             result = five.convert_tuples(water_tuples, result)
+            print_water = result
 
             #print("water-to-light map:")
             light_tuples = [
@@ -46,7 +49,8 @@ class TestStringMethods(unittest.TestCase):
             ]
 
             result = five.convert_tuples(light_tuples, result)
-            
+            print_light = result
+
             #print("light-to-temperature map:")
             temp_tuples = [
                 (45, 77, 23),
@@ -55,6 +59,7 @@ class TestStringMethods(unittest.TestCase):
             ]
 
             result = five.convert_tuples(temp_tuples, result)
+            print_temp = result
 
             #print("temperature-to-humidity map:")
             humi_tuples = [
@@ -63,17 +68,18 @@ class TestStringMethods(unittest.TestCase):
             ]
 
             result = five.convert_tuples(humi_tuples, result)
+            print_humi = result
 
             #print("humidity-to-location map:")
             local_tuples = [
                 (60, 56, 37),
                 (56, 93, 4),
             ]
-
             result = five.convert_tuples(local_tuples, result)
+            print_loc = result
 
-            locations.append(result)
-        
+            locations.append(result)            
+
         for location in locations:
             if lowest_location == 0:
                 lowest_location = location
@@ -84,29 +90,26 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(lowest_location, 35)
 
     def test_fullrun(self):
-        seeds = [
-            432563865, 
-            39236501, 
-            1476854973, 
-            326201032, 
-            1004521373, 
-            221995697, 
-            2457503679, 
-            46909145, 
-            603710475, 
-            11439698, 
-            1242281714, 
-            12935671, 
-            2569215463, 
-            456738587, 
-            3859706369, 
-            129955069, 
-            3210146725, 
-            618372750, 
-            601583464, 
-            1413192
+        seeds = []
+        seeds_range = [
+            range(432563865,(432563865+39236501)), 
+            range(1476854973, (1476854973+326201032)), 
+            range(1004521373,(1004521373+221995697)),
+            range(2457503679, (2457503679+46909145)),
+            range(603710475, (603710475+11439698)),
+            range(1242281714, (1242281714+12935671)),
+            range(2569215463, (2569215463+456738587)),
+            range(3859706369, (3859706369+129955069)),
+            range(3210146725, (3210146725+618372750)),
+            range(601583464, (601583464+1413192)),
         ]
+        # for seed_range in seeds_range:
+        #     for i in seed_range:
+        #         seeds.append(i)
 
+        for seed_range in seeds_range:
+            print("Running for {}".format(seed_range))
+            seeds.extend(seed_range)
 
         locations = []
         lowest_location = 0
