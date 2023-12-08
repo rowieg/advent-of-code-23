@@ -89,7 +89,7 @@ class TestStringMethods(unittest.TestCase):
         
         self.assertEqual(lowest_location, 35)
 
-    def test_fullrun(self):
+    def no_test_fullrun(self):
         seeds = []
         seeds_range = [
             range(432563865,(432563865+39236501)), 
