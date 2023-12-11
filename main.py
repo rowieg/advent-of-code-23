@@ -1,16 +1,20 @@
-from days import one, two, three, four, five, six, seven, nine
-from utils import input
+from days import one, two, three, four, five, six, seven, eight, nine, ten
+import sys
 
-# data_input_one = input.getInputData("one")
-# data_input_two = input.getInputData("two")
-# data_input_three = input.getInputData("three")
-# data_input_seven = input.getInputData("seven")
-#data_input_eight = input.getInputData("eight")
+def run(puzzle):
+    puzzles = {
+        "one": one.run,
+        "two": two.run,
+        "three": three.run,
+        "four": four.run,
+        "five": five.run,
+        "six": six.run,
+        "seven": seven.run,
+        "eight": eight.run,
+        "nine": nine.run,
+        "ten": ten.run,
+    }
+    puzzles[puzzle]()
 
-# one.run(data_input_one)
-# two.run(data_input_two)
-# three.run(data_input_three)
-# six.run()
-print(nine.run())
-#five.run()
-#seven.run(data_input_seven)
+
+run(sys.argv[1])
