@@ -1,12 +1,4 @@
-## read stuff
-list = open('days/data/four').read().splitlines()
-new_list = [item.split(": ")[1] for item in list]
-data = [(entry.split(" | ")[0].split(),entry.split(" | ")[1].split()) for entry in new_list ]
-
-
-lines = open('days/data/four', 'r').readlines()
-
-def part1():
+def part1(lines):
     total = 0
     for line in lines:
         x, y = map(str.split, line.split('|'))
@@ -14,7 +6,7 @@ def part1():
         total += 2 ** (len(matches) - 1) if matches else 0
     return total
 
-def part2():
+def part2(lines):
     cards = [1] * len(lines)
     #print(cards)
     for i, line in enumerate(lines):
@@ -43,7 +35,7 @@ def calculate_points(int):
     return 0
 
 def extend_scratchcards(list, matches, current_index):
-    cards = [1] * len(lines)
+    #cards = [1] * len(lines)
 
 
     return True
@@ -59,6 +51,13 @@ def calculate_full_game(list) -> int:
     return game_points
 
 def run():
+    ## read stuff
+    list = open('days/data/four').read().splitlines()
+    new_list = [item.split(": ")[1] for item in list]
+    data = [(entry.split(" | ")[0].split(),entry.split(" | ")[1].split()) for entry in new_list ]
+
+
+    lines = open('days/data/four', 'r').readlines()
     print("Day one puzzle 1a is:")
     print(calculate_full_game(data))
 
