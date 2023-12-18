@@ -1,4 +1,4 @@
-from days import one, two, three, four, five, six, seven, eight, nine, ten, eleven, thirteen, fourteen, fifteen
+from days import one, two, three, four, five, six, seven, eight, nine, ten, eleven, thirteen, fourteen, fifteen, eighteen
 import sys
 
 def run(puzzle):
@@ -17,6 +17,7 @@ def run(puzzle):
         "thirteen": thirteen.run,
         "fourteen": fourteen.run,
         "fifteen": fifteen.run,
+        "eighteen": eighteen.run,
     }
     puzzles[puzzle]()
 
