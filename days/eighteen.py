@@ -42,11 +42,10 @@ def sum_of_steps(points: list) -> int:
 
 def calculate_area(points: list) -> int:
   
-  area = shoelace_formula(points)
-  steps = sum_of_steps(points)
-  inner_points = area - (steps/2) + 1
+  perimeter = sum_of_steps(points)
+  area = shoelace_formula(points) + perimeter// 2 + 1
 
-  return inner_points + steps
+  return area
 
 def extract_points(data: list) -> list:
   points = []
