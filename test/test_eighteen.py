@@ -16,7 +16,33 @@ class TestStringMethods(unittest.TestCase):
         
         self.assertEqual(area, 16)
 
-    def test_extract_basic_points(self):
+    def test_extract_points(self):
+        
+        data = [
+            "R 2 (#70c710)",
+            "D 2 (#0dc571)",
+            "L 20 (#5713f0)",
+            "U 2 (#d2c081)",
+            "R 18 (#0dc571)"
+        ]
+        
+        expected_points = [
+            (0,0),
+            (0,0),
+            (2,0),
+            (2,-2),
+            (-18,-2),
+            (-18,0),
+            (0,0)
+        ]
+        
+        points = eighteen.extract_points(data)
+
+
+
+        self.assertEqual(points, expected_points)
+
+    def test_calculate_basic_area(self):
         
         data = [
             "R 2 (#70c710)",
@@ -29,7 +55,7 @@ class TestStringMethods(unittest.TestCase):
         area = eighteen.calculate_area(points)
         self.assertEqual(area, 9)
 
-    def test_extract_points(self):
+    def test_calculate_area(self):
         
         data = [
             "R 6 (#70c710)",
@@ -49,6 +75,7 @@ class TestStringMethods(unittest.TestCase):
         ]
         
         points = eighteen.extract_points(data)
+        print(points)
         area = eighteen.calculate_area(points)
         self.assertEqual(area, 62)
 
