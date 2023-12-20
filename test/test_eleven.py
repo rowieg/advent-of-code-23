@@ -18,9 +18,6 @@ class TestPuzzleEleven(unittest.TestCase):
             "#...#.....",
         ]
 
-        coordinates = eleven.extract_universes_coordinates(map)
-        print(eleven.caluclate_distances(coordinates))
-
         expected_map = [
             "....#........",
             ".........#...",

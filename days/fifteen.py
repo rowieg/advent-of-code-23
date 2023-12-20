@@ -22,7 +22,7 @@ def puzzle_2(holiday_strings: list):
             box[index] = lens
             break
       boxes[box_label].append(lens)
-  print(boxes)
+  #print(boxes)
   return boxes
 
 def arrange_lense(holiday_string: str):

@@ -79,9 +79,7 @@ def count_steps_as_ghost(input_string, map_dict) -> int:
                 check.append(key[-1])
             if set(check) == {"Z"}:
                 finish = True
-        print(steps)
         if steps > 100000000000:
-            print("Broken! ", check, positions)
             return 1
 
     return steps    

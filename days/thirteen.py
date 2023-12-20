@@ -38,7 +38,7 @@ def find_mirror_line_index(list):
 def find_perfect_mirror(game_map, index_x, index_y) -> tuple():
   horizontal_matches=[0]
   vertical_matches=[0]
-  print(index_x, index_y)
+  #print(index_x, index_y)
   for x in index_x:
     horizontal_match = 0
     if x != None:
@@ -68,9 +68,9 @@ def find_perfect_mirror(game_map, index_x, index_y) -> tuple():
             break
       vertical_matches.append(vertical_match)
 
-  print(vertical_matches)
+  #print(vertical_matches)
   if max(vertical_matches) > max(horizontal_matches):
-    print("Check this: ",index_y, vertical_matches)
+    #print("Check this: ",index_y, vertical_matches)
     index = vertical_matches.index(max(vertical_matches)) - 1
     return ("Vertical", index_y[index]+1)
   if max(horizontal_matches) > max(vertical_matches):
@@ -92,7 +92,7 @@ def puzzle_1(test_data):
         index_x = find_mirror_line_index(game_map)
         index_y = find_mirror_line_index(flip_matrix(game_map))
         result = find_perfect_mirror(game_map, index_x, index_y)
-        print("Result: ", result)
+        #print("Result: ", result)
         if result[0] == "Vertical":
           sum = sum + result[1]
         elif result[0] == "Horizontal":

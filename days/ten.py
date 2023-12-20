@@ -92,7 +92,7 @@ def puzzle_1(pipe_map):
     for index, entry in enumerate(pipe_map):
         if "S" in entry:
             current_position = (entry.index("S"), index)
-    print(pipe_map)
+    debug(pipe_map)
     position_up = (current_position[0], current_position[1] - 1)
     position_right = (current_position[0] + 1, current_position[1])
     position_down = (current_position[0], current_position[1] + 1)

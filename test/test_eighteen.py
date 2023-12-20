@@ -75,7 +75,6 @@ class TestStringMethods(unittest.TestCase):
         ]
         
         points = eighteen.extract_points(data)
-        print(points)
         area = eighteen.calculate_area(points)
         self.assertEqual(area, 62)
 
