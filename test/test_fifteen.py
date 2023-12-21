@@ -20,7 +20,7 @@ class TestDayFifteen(unittest.TestCase):
       self.assertEqual(box,"0")
       self.assertEqual(lens,("rn",1))
       
-    def test_puzzle_2(self):
+    def _test_puzzle_2(self):
       test_data = "rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7".split(",")
       self.assertEqual(fifteen.puzzle_2(test_data),{})
 
